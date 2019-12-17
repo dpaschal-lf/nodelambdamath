@@ -11,14 +11,15 @@ service: nodelamdamath
 provider:
   name: aws
   runtime: nodejs12.x
+  region: eu-west-1
 
 # The `functions` block defines what code to deploy
 functions:
   helloWorld:
-    handler: handler.helloWorld
+    handler: handler.doMath
     # The `events` block defines how to trigger the handler.helloWorld code
     events:
       - http:
-          path: hello-world
+          path: doMath
           method: get
           cors: true
